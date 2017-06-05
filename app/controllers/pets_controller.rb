@@ -1,9 +1,9 @@
-class PetsController < ApplicationController
+class PetsController < ProtectedController
   before_action :set_pet, only: [:show, :update, :destroy]
 
   # GET /pets
   def index
-    @pets = Pet.all
+    @pets = current_user.pets
 
     render json: @pets
   end
@@ -15,8 +15,7 @@ class PetsController < ApplicationController
 
   # POST /pets
   def create
-    @pet = Pet.new(pet_params)
-
+    @pet = current_user.pets.build(pet_params)
     if @pet.save
       render json: @pet, status: :created, location: @pet
     else
@@ -41,7 +40,7 @@ class PetsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_pet
-      @pet = Pet.find(params[:id])
+      @pet = current_user.pets.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
