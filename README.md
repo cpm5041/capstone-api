@@ -292,6 +292,8 @@ bin/rake db:migrate db:seed db:examples
 heroku run rake db:migrate VERSION=0
 heroku run rake db:migrate db:seed db:examples
 ```
+### ERD
+Link to ERD: https://www.dropbox.com/s/6od6ckdyfqsumgk/Photo%20Jun%2005%2C%2010%2048%2032%20AM.jpg?dl=0
 
 ## [License](LICENSE)
 
