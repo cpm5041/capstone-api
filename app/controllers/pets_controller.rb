@@ -1,8 +1,15 @@
-class PetsController < ProtectedController
+class PetsController < OpenReadController
   before_action :set_pet, only: [:show, :update, :destroy]
 
   # GET /pets
   def index
+    @pets = Pet.all
+
+    render json: @pets
+  end
+
+  # GET /pets
+  def my_pets
     @pets = current_user.pets
 
     render json: @pets
