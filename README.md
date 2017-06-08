@@ -1,8 +1,13 @@
 [![General Assembly Logo](https://camo.githubusercontent.com/1a91b05b8f4d44b5bbfb83abac2b0996d8e26c92/687474703a2f2f692e696d6775722e636f6d2f6b6538555354712e706e67)](https://generalassemb.ly/education/web-development-immersive)
 
-# rails-api-template
+# Capstone API Readme
 
-A template for starting projects with `rails-api`. Includes authentication.
+A README for my capstone API which was built on rails. Includes authentication.
+
+- [Link to Deployed Application](https://cpm5041.github.io/CapstoneProject/)
+- [Link to API Repo](https://github.com/cpm5041/capstone-api)
+- [Link to API Repo](https://github.com/cpm5041/capstone-api)
+- [Link to Heroku App](https://fathomless-peak-62210.herokuapp.com/)
 
 At the beginning of each cohort, update the versions in [`Gemfile`](Gemfile).
 
@@ -47,8 +52,6 @@ version of Rails 4, as well as track `master` branches for `rails-api` and
 
 ## Structure
 
-This template follows the standard project structure in Rails 4.
-
 `curl` command scripts are stored in [`scripts`](scripts) with names that
 correspond to API actions.
 
@@ -68,11 +71,6 @@ Developers should run these often!
 <!-- TODO -   `rake nag` checks your code style. -->
 <!-- TODO -   `rake lint` checks your code for syntax errors. -->
 
-## API
-
-Use this as the basis for your own API documentation. Add a new third-level
-heading for your custom entities, and follow the pattern provided for the
-built-in user authentication documentation.
 
 Scripts are included in [`scripts`](scripts) to test built-in actions. Add your
 own scripts to test your custom API. As an alternative, you can write automated
