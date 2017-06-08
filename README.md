@@ -275,6 +275,159 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
+### PETS
+
+| Verb   | URI Pattern            | Controller#Action |
+|--------|------------------------|-------------------|
+| POST   | `/pets`               | `pets#create`    |
+| GET    | `/pets`               | `pets#index`     |
+| PATCH  | `/pets/:id`           | `pets#update`    |
+| DELETE | `/pets/:id`           | `pets#destroy`   |
+| GET    | `/my-pets/:id`        | `pets#my_pets` |
+
+#### POST /pets
+
+API='http://localhost:4741'
+URL_PATH='/pets'
+
+Request:
+
+
+```sh
+
+API="http://localhost:4741"
+URL_PATH="/pets"
+TOKEN="token"
+BREED="Golden Retriever"
+SPECIES="Doggo"
+NAME="Luce"
+BORNON="2017-10-05"
+GENDER="Female"
+IMAGE="http://cdn2-www.dogtime.com/assets/uploads/gallery/30-impossibly-cute-puppies/impossibly-cute-puppy-8.jpg"
+
+curl "${API}${URL_PATH}" \
+ --include \
+ --request POST \
+ --header "Content-Type: application/json" \
+ --header "Authorization: Token token=${TOKEN}" \
+ --data '{
+   "pet": {
+     "breed": "'"${BREED}"'",
+     "species": "'"${SPECIES}"'",
+     "name": "'"${NAME}"'",
+     "bornOn": "'"${BORNON}"'",
+     "gender": "'"${GENDER}"'",
+     "image": "'"${IMAGE}"'"
+
+
+   }
+ }'
+```
+
+#### GET /pets
+
+Gets ALL pets
+```sh
+API="http://localhost:4741"
+URL_PATH="/pets"
+ID="3"
+TOKEN="token"
+
+curl "${API}${URL_PATH}/${ID}" \
+  --include \
+  --header "Authorization: Token token=${TOKEN}" \
+  --request GET
+
+echo
+
+```
+
+#### PATCH /pets/:id
+
+API='http://localhost:4741'
+URL_PATH='/pets'
+
+Request:
+
+```sh
+TOKEN="token"
+BREED="Golden Retriever"
+SPECIES="Doggo"
+NAME="Luceyyyyyy"
+BORNON="2017-10-05"
+GENDER="Female"
+IMAGE="http://cdn2-www.dogtime.com/assets/uploads/gallery/30-impossibly-cute-puppies/impossibly-cute-puppy-8.jpg"
+
+
+ curl --include --request PATCH http://localhost:4741/pets/2 \
+  --header "Content-Type: application/json" \
+   --header "Authorization: Token token=${TOKEN}" \
+  --data '{
+    "pet": {
+      "breed": "'"${BREED}"'",
+      "species": "'"${SPECIES}"'",
+      "name": "'"${NAME}"'",
+      "bornOn": "'"${BORNON}"'",
+      "gender": "'"${GENDER}"'",
+      "image": "'"${IMAGE}"'"
+    }
+  }'
+```
+
+
+
+#### DELETE /pets/:id
+
+API='http://localhost:4741'
+URL_PATH='/pets'
+
+Request:
+
+```sh
+API="http://localhost:4741"
+URL_PATH="/pets"
+ID="3"
+TOKEN="token"
+
+curl "${API}${URL_PATH}/${ID}" \
+  --include \
+  --request DELETE \
+  --header "Authorization: Token token=${TOKEN}"
+
+```
+
+Example Response:
+
+```md
+HTTP/1.1 204 No Content
+X-Powered-By: Express
+Access-Control-Allow-Origin: http://localhost:7165
+Vary: Origin
+ETag: W/"a-bAsFyilMr4Ra1hIU5PyoyFRunpI"
+Date: Fri, 19 May 2017 05:33:41 GMT
+Connection: keep-alive
+```
+#### GET /my-pets/:id
+
+API ='http://localhost:4741'
+URL_PATH='/my-pets'
+
+Request:
+
+```sh
+API="http://localhost:4741"
+URL_PATH="/pets/"
+TOKEN="token"
+
+curl "${API}${URL_PATH}/${ID}" \
+  --include \
+  --header "Authorization: Token token=${TOKEN}" \
+  --request GET
+
+```
+
+
+```
 ### Reset Database without dropping
 
 This is not a task developers should run often, but it is sometimes necessary.
